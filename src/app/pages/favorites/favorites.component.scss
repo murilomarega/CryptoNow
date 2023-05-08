@@ -1,0 +1,52 @@
+.favorites-container {
+  max-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.favorites-content {
+  display: flex;
+  flex-direction: column;
+
+  app-loading {
+    height: 80vh;
+  }
+
+  app-cryptos-favorite-list {
+    display: flex;
+    height: 79vh;
+    max-height: calc(79vh - 30px);
+    overflow: auto;
+    margin-bottom: 48px;
+  }
+}
+
+.favorites-update {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+#buttonUpdate {
+  span.update-label {
+    margin-right: 8px;
+    display: none;
+  }
+
+  mat-icon {
+    transform: rotate(45deg);
+    margin-right: 0px;
+  }
+}
+
+@media (min-width: 576px) {
+  #buttonUpdate {
+    display: flex;
+    flex-direction: row-reverse;
+
+    span.update-label {
+      display: inline;
+    }
+  }
+}

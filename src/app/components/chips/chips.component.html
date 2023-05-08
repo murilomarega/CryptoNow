@@ -1,0 +1,11 @@
+<div class="chips-container">
+  <mat-chip
+    *ngFor="let crypto of savedCryptos"
+    (removed)="removeCryptoFromFavorites(crypto)"
+  >
+    {{ crypto }}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+</div>

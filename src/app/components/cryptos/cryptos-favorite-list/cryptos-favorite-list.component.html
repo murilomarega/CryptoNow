@@ -1,0 +1,23 @@
+<div class="grid-container">
+  <mat-card *ngFor="let crypto of savedCryptosData">
+    <mat-card-content>
+      <button
+        mat-button
+        aria-label="remove favorite"
+        class="remove-favorite"
+        (click)="removeFromFavorites(crypto.asset_id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <h2 class="mat-h2">{{ crypto.asset_id }} | {{ crypto.name }}</h2>
+
+      <h2 *ngIf="crypto && crypto.price_usd; else notAvailaible" class="mat-h2">
+        {{ crypto.price_usd | currency : "USD" : "symbol" : "2.2-5" }}
+      </h2>
+
+      <ng-template #notAvailaible>
+        <h2 class="mat-h2">N/A</h2>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

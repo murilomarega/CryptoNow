@@ -1,0 +1,28 @@
+<div *ngIf="loading$ | async; else cryptoList">...loading</div>
+
+<ng-template #cryptoList>
+  <cdk-virtual-scroll-viewport itemSize="50" class="virtualized-viewport">
+    <mat-list>
+      <div
+        *cdkVirtualFor="let crypto of cryptos$ | async"
+        class="example-ripple-container"
+        matRipple
+        [matRippleColor]="'#cecece60'"
+        (click)="handleFavoriteUnfavoriteCrypto(crypto.asset_id)"
+      >
+        <mat-list-item>
+          <div class="list-item-content">
+            {{ crypto.asset_id }} | {{ crypto.name }}
+            <mat-icon
+              [color]="
+                handleVerifyIsSaved(crypto.asset_id) ? 'accent' : 'basic'
+              "
+            >
+              favorite</mat-icon
+            >
+          </div>
+        </mat-list-item>
+      </div>
+    </mat-list>
+  </cdk-virtual-scroll-viewport>
+</ng-template>

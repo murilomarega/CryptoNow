@@ -1,0 +1,19 @@
+<mat-form-field>
+  <mat-label>Find your favorite cryptos</mat-label>
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="filterInputValue"
+    (input)="handleFilterCryptos()"
+    [disabled]="loading"
+  />
+  <button
+    *ngIf="filterInputValue"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="handleClearFilterInputField()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

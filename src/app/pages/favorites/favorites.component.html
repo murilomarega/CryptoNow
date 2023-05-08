@@ -1,0 +1,34 @@
+<div class="favorites-container">
+  <app-page-header [title]="'Favorites'"></app-page-header>
+  <div class="favorites-content">
+    <app-loading
+      *ngIf="loading$ | async; else favoritsCryptoList"
+    ></app-loading>
+
+    <ng-template #favoritsCryptoList>
+      <div *ngIf="savedCryptosIds.length > 0; else emptyState">
+        <div class="favorites-update">
+          <span>
+            Last update:
+            {{ cryptosLastUpdate | date : "dd/MM/yyyy HH:mm:ss" }}
+          </span>
+
+          <button
+            mat-button
+            id="buttonUpdate"
+            (click)="updateFavoritesList()"
+            aria-label="Update favorites list"
+          >
+            <span class="update-label">Update favorites</span>
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <app-cryptos-favorite-list></app-cryptos-favorite-list>
+      </div>
+
+      <ng-template #emptyState class="favorites-empty-state">
+        <app-empty-state></app-empty-state>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

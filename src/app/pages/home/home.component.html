@@ -1,0 +1,46 @@
+<div class="home-container">
+  <app-page-header [title]="'CryptoNow'"></app-page-header>
+  <div class="home-content">
+    <app-loading *ngIf="loading$ | async; else homeContent"></app-loading>
+    <ng-template #homeContent>
+      <div class="mobile-filter-content">
+        <mat-form-field
+          class="example-form-field"
+          (click)="handleHomeInputValue($event)"
+        >
+          <mat-label>Find your favorite cryptos</mat-label>
+          <input
+            #openBottonSheetInput
+            matInput
+            type="text"
+            [(ngModel)]="homeInputValue"
+            (input)="handleHomeInputValue($event)"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="desktop-filter-content">
+        <app-filter></app-filter>
+
+        <div class="list-content">
+          <app-cryptos-list></app-cryptos-list>
+        </div>
+      </div>
+
+      <div class="chips-container" #chipsContainer>
+        <div
+          *ngIf="!!savedCryptos?.length; else addCryptoSuggestion"
+          class="chips-content"
+        >
+          <h3 class="mat-subheading-2">Favorited cryptos</h3>
+
+          <app-chips></app-chips>
+        </div>
+
+        <ng-template #addCryptoSuggestion>
+          <app-empty-state></app-empty-state>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
+</div>

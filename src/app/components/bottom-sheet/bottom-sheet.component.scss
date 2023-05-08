@@ -1,0 +1,15 @@
+.mat-bottom-sheet-content {
+  min-height: 75vh;
+  max-height: 75vh;
+
+  app-cryptos-list {
+    height: calc(75vh - 70px);
+    display: flex;
+  }
+}
+
+@media (min-width: 959px) {
+  .desktop-filter-content {
+    display: none;
+  }
+}

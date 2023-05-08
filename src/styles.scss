@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@import "material-icons/iconfont/material-icons.scss";
+
+$my-palette: mat.$indigo-palette;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+@media (min-width: 959px) {
+  .cdk-overlay-container {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

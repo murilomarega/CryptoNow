@@ -1,0 +1,27 @@
+.app-container {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 24px;
+
+  ::before {
+    content: "";
+    background: url("../assets/crypto-background.jpeg");
+    opacity: 0.005;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-container {
+    padding: 0;
+  }
+}
